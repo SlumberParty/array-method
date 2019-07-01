@@ -3,7 +3,8 @@ const {
   filter,
   findIndex,
   reduce,
-  every
+  every,
+  forEach
 } = require('./function.js');
   
 describe('array methods', () => {
@@ -157,5 +158,27 @@ describe('every function', () => {
   it('returns true if any number does not match', () => {
     const numbers = [1, 2, 3, 4];
     expect(every(numbers, number => number < 10)).toBeTruthy();
+  });
+
+  it('skips holes', () => {
+    // eslint-disable-next-line no-sparse-arrays
+    const numbers = [1, , 3, 4];
+    const callback = jest.fn(number => number < 10);
+    every(numbers, callback);
+
+    expect(callback).toHaveBeenCalledTimes(3);
+  });
+});
+
+describe('forEach function', () => {
+  it('iterates throught the array calling callback', () => {
+    const callback = jest.fn();
+
+    forEach([1, 2, 3], callback);
+
+    expect(callback).toHaveBeenCalledTimes(3);
+    expect(callback).toHaveBeenCalledWith(1);
+    expect(callback).toHaveBeenCalledWith(2);
+    expect(callback).toHaveBeenCalledWith(3);
   });
 });

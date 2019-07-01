@@ -57,11 +57,18 @@ function every(arr, callback) {
   return true;
 }
 
+function forEach(arr, callback) {
+  for(let i = 0; i < arr.length; i++) {
+    if(arr.hasOwnProperty(i)) callback(arr[i]);
+  }
+}
+
 
 module.exports = {
   map,
   filter,
   findIndex,
   reduce,
-  every
+  every,
+  forEach
 };
