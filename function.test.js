@@ -153,4 +153,9 @@ describe('every function', () => {
     const numbers = [1, 2, 3, 4];
     expect(every(numbers, number => number < 2)).toBeFalsy();
   });
+
+  it('returns true if any number does not match', () => {
+    const numbers = [1, 2, 3, 4];
+    expect(every(numbers, number => number < 10)).toBeTruthy();
+  });
 });
