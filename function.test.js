@@ -2,7 +2,8 @@ const {
   map,
   filter,
   findIndex,
-  reduce
+  reduce,
+  every
 } = require('./function.js');
   
 describe('array methods', () => {
@@ -144,5 +145,12 @@ describe ('reduce function', () => {
     reduce(numbers, callback, 0);
 
     expect(callback).toHaveBeenCalledTimes(3);
+  });
+});
+
+describe('every function', () => {
+  it('returns false if any number does not match', () => {
+    const numbers = [1, 2, 3, 4];
+    expect(every(numbers, number => number < 2)).toBeFalsy();
   });
 });

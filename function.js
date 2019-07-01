@@ -49,9 +49,19 @@ function reduce(arr, callback, initialValue) {
   return acc;
 }
 
+function every(arr, callback) {
+  for(let i = 0; i < arr.length; i++) {
+    if(arr.hasOwnProperty(i) && !callback(arr[i])) return false;
+  }
+
+  return true;
+}
+
+
 module.exports = {
   map,
   filter,
   findIndex,
-  reduce
+  reduce,
+  every
 };
