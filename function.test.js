@@ -130,5 +130,19 @@ describe ('reduce function', () => {
     expect(callback).toHaveBeenCalledTimes(numbers.length);
   });
 
-    
+  it('iterates through an array and updates the acc with result of callback', () => {
+    const numbers = [1, 2, 3];
+    const sum = reduce(numbers, (acc, item) => acc + item, 0);
+
+    expect(sum).toEqual(6);
+  });
+
+  it('skips holes', () => {
+    // eslint-disable-next-line no-sparse-arrays
+    const numbers = [1, , 3, 4];
+    const callback = jest.fn();
+    reduce(numbers, callback, 0);
+
+    expect(callback).toHaveBeenCalledTimes(3);
+  });
 });
