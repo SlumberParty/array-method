@@ -2,7 +2,8 @@ const {
   map,
   filter,
   findIndex,
-} = require('./index');
+  reduce
+} = require('./function.js');
   
 describe('array methods', () => {
   describe('map function', () => {
@@ -117,4 +118,17 @@ describe('array methods', () => {
       expect(callback).toHaveBeenCalledTimes(3);
     });
   });
+});
+
+describe ('reduce function', () => {
+  it('iterates through an array and invokes the callback', () => {
+    const numbers = [1, 2, 3];
+    const callback = jest.fn();
+
+    reduce(numbers, callback, 0);
+
+    expect(callback).toHaveBeenCalledTimes(numbers.length);
+  });
+
+    
 });
