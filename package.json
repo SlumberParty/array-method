@@ -1,0 +1,25 @@
+{
+  "name": "array-method",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SlumberParty/array-method.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SlumberParty/array-method/issues"
+  },
+  "homepage": "https://github.com/SlumberParty/array-method#readme",
+  "devDependencies": {
+    "eslint": "^6.0.0",
+    "jest": "^24.8.0"
+  }
+}
