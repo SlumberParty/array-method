@@ -181,4 +181,13 @@ describe('forEach function', () => {
     expect(callback).toHaveBeenCalledWith(2);
     expect(callback).toHaveBeenCalledWith(3);
   });
+
+  it('skips holes', () => {
+    // eslint-disable-next-line no-sparse-arrays
+    const numbers = [1, , 3, 4];
+    const callback = jest.fn();
+    forEach(numbers, callback);
+
+    expect(callback).toHaveBeenCalledTimes(3);
+  });
 });
